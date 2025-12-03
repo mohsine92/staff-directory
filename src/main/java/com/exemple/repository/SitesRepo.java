@@ -32,12 +32,12 @@ public class SitesRepo {
         }
     }
 
-    public Sites update(Sites sites) {
+    public static Sites update(Sites sites) {
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
             org.hibernate.Transaction tx = session.beginTransaction();
-            Sites clientManaged = (Sites) session.merge(sites);
+            Sites sitesManaged = session.merge(sites);
             tx.commit();
-            return clientManaged;
+            return sitesManaged;
         }
     }
 

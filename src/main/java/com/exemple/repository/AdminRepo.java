@@ -34,12 +34,12 @@ public class AdminRepo {
         }
     }
 
-    public Admin update(Admin admin) {
+    public static Admin update(Admin admin) {
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
             Transaction tx = session.beginTransaction();
-            Admin clientManaged = (Admin) session.merge(admin);
+            Admin adminManaged = session.merge(admin);
             tx.commit();
-            return clientManaged;
+            return adminManaged;
         }
     }
 
