@@ -1,12 +1,12 @@
 package com.exemple.models;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 
-@Entity
+@MappedSuperclass
 public abstract class User {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -18,11 +18,11 @@ public abstract class User {
     @Column(nullable = false,length=60)
     private String LastName;
 
-    @Column(nullable = false,length=60)
-    private Integer Phone;
+    @Column(nullable = false, length=20)
+    private String Phone;
 
-    @Column(nullable = false,length=60)
-    private Integer Cell;
+    @Column(nullable = false, length=20)
+    private String Cell;
 
     @Column(nullable = false,length=60)
     private String Email;
@@ -36,7 +36,7 @@ public abstract class User {
     
     
     // Constructor
-    protected User(Integer ID, String FirstName, String LastName, Integer Phone, Integer Cell, String Email, String PASSWORD_HASH, String ROLE) {
+    protected User(Integer ID, String FirstName, String LastName, String Phone, String Cell, String Email, String PASSWORD_HASH, String ROLE) {
         this.ID = ID;
         this.FirstName = FirstName;
         this.LastName = LastName;
@@ -80,19 +80,19 @@ public abstract class User {
         LastName = lastName;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return Phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         Phone = phone;
     }
 
-    public Integer getCell() {
+    public String getCell() {
         return Cell;
     }
 
-    public void setCell(Integer cell) {
+    public void setCell(String cell) {
         Cell = cell;
     }
 

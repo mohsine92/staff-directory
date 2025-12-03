@@ -9,24 +9,43 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="Services")
-
-
 public class Services {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer ID;
 
-    @Column(nullable = false,length=60)
+    @Column(nullable = false, length=60)
     private String Name;
 
+    // Constructeur par défaut (requis pour Hibernate)
+    public Services() {
+    }
 
-
-   // Getter/Setter
-    
-   
-   // Constructor
-   public Services(Integer id, String name) {
+    // Constructeur avec paramètres
+    public Services(Integer id, String name) {
         this.ID = id;
         this.Name = name;
-     }
+    }
+
+    // Constructeur avec nom uniquement
+    public Services(String name) {
+        this.Name = name;
+    }
+
+    // Getters et Setters
+    public Integer getID() {
+        return ID;
+    }
+
+    public void setID(Integer ID) {
+        this.ID = ID;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        this.Name = name;
+    }
 }

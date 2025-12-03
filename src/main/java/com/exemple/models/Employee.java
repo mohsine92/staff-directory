@@ -1,50 +1,49 @@
 package com.exemple.models;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="EMPLOYEE")
-
-
 public class Employee extends User {
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Integer ID;
+    
+    @ManyToOne
+    @JoinColumn(name = "IdService", nullable = false)
+    private Services service;
 
-    @Column(nullable = false,length=60)
-    private String FirstName;
+    @ManyToOne
+    @JoinColumn(name = "IdSite", nullable = false)
+    private Sites site;
 
-    @Column(nullable = false,length=60)
-    private String LastName;
-
-    @Column(nullable = false,length=60)
-    private Integer Phone;
-
-    @Column(nullable = false,length=60)
-    private Integer Cell;
-
-    @Column(nullable = false,length=60)
-    private String Email;
-
-    @Column(nullable = false,length=60)
-    private Integer IdService;
-
-    @Column(nullable = false,length=60)
-    private String IdSite;
-
-    public Employee(Integer ID, String FirstName, String LastName, Integer Phone, Integer Cell, String Email,
-            String PASSWORD_HASH, String firstName2, String lastName2, Integer phone2, Integer cell2,
-            String email2, Integer idService, String idSite) {
-        super(ID, FirstName, LastName, Phone, Cell, Email, PASSWORD_HASH, "EMPLOYEE");    
-    }
-
+    // Constructeur par défaut (requis pour Hibernate)
     protected Employee() {
-
+        super();
     }
 
+    // Constructeur avec tous les paramètres
+    public Employee(String firstName, String lastName, String phone, String cell, String email,
+            String passwordHash, Services service, Sites site) {
+        super(null, firstName, lastName, phone, cell, email, passwordHash, "EMPLOYEE");
+        this.service = service;
+        this.site = site;
+    }
+
+    // Getters et Setters
+    public Services getService() {
+        return service;
+    }
+
+    public void setService(Services service) {
+        this.service = service;
+    }
+
+    public Sites getSite() {
+        return site;
+    }
+
+    public void setSite(Sites site) {
+        this.site = site;
+    }
 }
