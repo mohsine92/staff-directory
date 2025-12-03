@@ -54,7 +54,7 @@ public class EmployeeRepository {
     }
 
     // Méthodes de recherche
-    // Recherche par nom (saisie partielle - recherche dans FirstName et LastName)
+    // Recherche par nom (FirstName et LastName)
     public static List<Employee> searchByName(String namePattern) {
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
             String query = "from Employee e where lower(e.FirstName) like lower(:pattern) " +
@@ -85,7 +85,7 @@ public class EmployeeRepository {
         }
     }
 
-    // Recherche combinée (nom + site + service)
+    // Recherche (nom + site + service)
     public static List<Employee> search(String namePattern, Sites site, Services service) {
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
             StringBuilder queryBuilder = new StringBuilder("from Employee e where 1=1");
