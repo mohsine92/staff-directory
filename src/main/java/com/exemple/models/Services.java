@@ -22,7 +22,7 @@ public class Services {
     }
 
     // Constructeur avec paramètres
-    public Services(Integer id, String name) {
+   public Services(Integer id, String name) {
         this.ID = id;
         this.Name = name;
     }
@@ -47,5 +47,5 @@ public class Services {
 
     public void setName(String name) {
         this.Name = name;
-    }
+     }
 }

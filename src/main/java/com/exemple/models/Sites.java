@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="Sites")
 public class Sites {
-    @Id
+@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer ID;
 
@@ -20,7 +20,7 @@ public class Sites {
     // Constructeur par défaut (requis pour Hibernate)
     public Sites() {
     }
-
+    
     // Constructeur avec paramètres
     public Sites(Integer id, String city) {
         this.ID = id;

@@ -3,6 +3,9 @@ package com.exemple;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+/**
+ * Utilitaire pour la gestion de la SessionFactory Hibernate
+ */
 public class HibernateUtils {
 
     private HibernateUtils() {
