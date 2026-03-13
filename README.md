@@ -420,7 +420,7 @@ mvn clean install
 This project is provided as-is for educational and development purposes.
 
 ## Author
-
+Mohsine ESSAT
 Developed as part of a JavaFX and Hibernate learning project.
 
 ---
