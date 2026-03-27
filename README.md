@@ -415,15 +415,6 @@ mvn clean install
 - **Passwords** are hashed using SHA-256 algorithm
 - The application supports **concurrent access** (multiple instances can run simultaneously)
 
-## License
-
-This project is provided as-is for educational and development purposes.
-
 ## Author
-Mohsine ESSAT
-Developed as part of a JavaFX and Hibernate learning project.
-
+Mohsine ESSAT 
 ---
-
-**Version**: 1.0  
-**Last Updated**: December 2024
